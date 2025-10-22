@@ -32,8 +32,6 @@ export const CreateHangout: React.FC = () => {
 
   const generateAISuggestions = () => {
     // Simulate AI suggestions
-    const selectedFriendObjects = mockFriends.filter(f => selectedFriends.includes(f.id));
-    
     const suggestions = [
       {
         id: 1,
@@ -68,7 +66,7 @@ export const CreateHangout: React.FC = () => {
     setShowSuggestions(true);
   };
 
-  const confirmSuggestion = (suggestion: any) => {
+  const confirmSuggestion = () => {
     alert(`Hangout confirmed! Invites sent to ${selectedFriends.length} friend(s)`);
     navigate('/hangouts');
   };
@@ -202,7 +200,7 @@ export const CreateHangout: React.FC = () => {
                         <span>{suggestion.location}</span>
                       </div>
                     </div>
-                    <Button onClick={() => confirmSuggestion(suggestion)} className="w-full">
+                    <Button onClick={confirmSuggestion} className="w-full">
                       Confirm & Send Invites
                     </Button>
                   </CardContent>
